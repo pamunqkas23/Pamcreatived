@@ -1,3 +1,8 @@
+/* RESET & BOX SIZING */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
@@ -14,17 +19,18 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 2vw; /* auto resize font berdasarkan lebar layar */
+    font-size: 24px; /* responsive di mobile */
 }
 
 #updateTime {
     margin-top: 6px;
-    font-size: 0.9vw;
+    font-size: 14px;
     color: #dcdcdc;
 }
 
 .container {
-    padding: 20px;
+    padding: 15px;
+    max-width: 100%;
 }
 
 .search-box input {
@@ -34,14 +40,13 @@ header h1 {
     margin-bottom: 15px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
 }
 
+/* TABLE STYLING */
 .table-wrapper {
     width: 100%;
 }
 
-/* ===== TABLE STYLING ===== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -54,27 +59,18 @@ thead {
 }
 
 th, td {
-    padding: 1vw; /* auto resize padding */
+    padding: 10px;
     border-bottom: 1px solid #e0e0e0;
 }
 
-/* Nama mentok kiri */
+/* Name kiri, angka tengah */
 th:nth-child(1),
 td:nth-child(1) {
     text-align: left;
 }
 
-/* Kolom angka rata tengah */
-th:nth-child(2),
-th:nth-child(3),
-th:nth-child(4),
-th:nth-child(5),
-th:nth-child(6),
-td:nth-child(2),
-td:nth-child(3),
-td:nth-child(4),
-td:nth-child(5),
-td:nth-child(6) {
+th:nth-child(n+2),
+td:nth-child(n+2) {
     text-align: center;
 }
 
@@ -82,25 +78,17 @@ tbody tr:hover {
     background: #f1f5f9;
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 
-/* Tablet / Laptop kecil */
+/* Tablet/Laptop kecil */
 @media (max-width: 1024px) {
-    header h1 {
-        font-size: 5vw;
-    }
-    th, td {
-        padding: 0.8vw;
-        font-size: 0.9vw;
-    }
+    header h1 { font-size: 20px; }
+    th, td { padding: 8px; font-size: 12px; }
 }
 
 /* Mobile / HP: STACKING CARD */
 @media (max-width: 768px) {
-    /* sembunyikan header tabel */
-    table thead {
-        display: none;
-    }
+    table thead { display: none; }
 
     table, tbody, tr, td {
         display: block;
@@ -121,6 +109,7 @@ tbody tr:hover {
         padding: 6px 10px;
         position: relative;
         font-size: 14px;
+        word-wrap: break-word;
     }
 
     td::before {
@@ -130,7 +119,6 @@ tbody tr:hover {
         width: 120px;
     }
 
-    /* optional: warna background card */
     tr:hover {
         background: #f9f9f9;
     }
