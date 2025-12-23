@@ -17,7 +17,7 @@ fetch("stats.csv")
         }
 
         // Skip header CSV
-        if (index === 1) return;
+        if (index === 0) return;
 
         const tr = document.createElement("tr");
 
@@ -32,7 +32,7 @@ fetch("stats.csv")
                 td.textContent = col;
             }
 
-            // tambahkan data-label untuk mobile card
+            // Tambahkan data-label untuk mobile card
             td.setAttribute("data-label", headers[colIndex]);
 
             tr.appendChild(td);
